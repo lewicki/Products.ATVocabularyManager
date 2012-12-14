@@ -17,7 +17,7 @@ from AccessControl import ClassSecurityInfo
 from OFS.Cache import Cacheable
 from Products.PlacelessTranslationService.Negotiator import getLangPrefs
 from Products.CMFCore.utils import getToolByName
-from Products.CMFCore.utils import UniqueObject
+from Products.CMFCore.utils import ImmutableId
 from Products.CMFCore.permissions import ModifyPortalContent
 from Products.CMFCore.permissions import View
 from Products.Archetypes.atapi import *
@@ -30,7 +30,7 @@ from Products.Archetypes.utils import shasattr
 
 
 ### note: derive somewhere in future from BaseTool
-class VocabularyLibrary(UniqueObject, OrderedBaseFolder, Cacheable):
+class VocabularyLibrary(ImmutableId, OrderedBaseFolder, Cacheable):
     '''
     This tool contains dynamic vocabularies to be used by Archetypes
     fields. It has methods to register special/custom vocabulary
